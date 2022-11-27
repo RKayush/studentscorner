@@ -1,1 +1,0 @@
-web:node public/src/index.js
