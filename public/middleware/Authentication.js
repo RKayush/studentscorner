@@ -4,7 +4,7 @@ CLIENT FROM SIGNING/LOGINING IN AGAIN */
 /* MIDDLEWARE USES NEXT() AS TO PASS THE CONTROL TO NEXT EXECUTABLE CODE.
 IF NOT USED THE REST PROCESS MAY NOT BE EXECUTED
 */
-const User = require('./models/User.js');
+const User = require('../models/User.js');
 
 module.exports = (req,res,next)=>{
     User.findById(req.session.userId,(error,found)=>{

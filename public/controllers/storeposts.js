@@ -1,7 +1,7 @@
-const community1 = require('./models/community1');
-const community2 = require('./models/community2');
-const community3 = require('./models/community3');
-const community4 = require('./models/community4');
+const community1 = require('../models/community1');
+const community2 = require('../models/community2');
+const community3 = require('../models/community3');
+const community4 = require('../models/community4');
 
 module.exports = async(req,res)=>{
     if(req.session.no==1){

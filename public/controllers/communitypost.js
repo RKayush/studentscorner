@@ -1,7 +1,7 @@
-const community1 = require('./models/community1');
-const community2 = require('./models/community2');
-const community3 = require('./models/community3');
-const community4 = require('./models/community4');
+const community1 = require('../models/community1');
+const community2 = require('../models/community2');
+const community3 = require('../models/community3');
+const community4 = require('../models/community4');
 
 module.exports = async(req,res)=>{
     var no=0;
@@ -21,7 +21,7 @@ module.exports = async(req,res)=>{
         req.session.no=4;
         posts = await community4.find({}).populate('userid');
     }
-    res.render('./public/views/post',{
+    res.render('../public/views/post',{
         posts,
         title:"Posts-Students Corner"
     });

@@ -65,74 +65,74 @@ mongoose.connect("mongodb+srv://RadhaRaman:000ILoveMyBeloved000.@cluster0.a2kmo0
 // mongoose.connect("mongodb://localhost:27017/Database",{useNewUrlParser:true})
 
 /*          --------------ROUTING REQUESTS-------------          */
-const homeController = require('./public/controllers/home');
+const homeController = require('../controllers/home');
 app.get('/',homeController);
 
 /*----------------------        ROUTES RELATED TO RESOURCES     -------------------------- */
-const resourceController = require('./public/controllers/resources');
+const resourceController = require('../controllers/resources');
 app.get('/resources',resourceController);
 
-const freeController = require("./public/controllers/freeforstudents");
+const freeController = require("../controllers/freeforstudents");
 app.get('/resources/freeutilites',freeController);
 
-const bookController = require('./public/controllers/bookResources');
+const bookController = require('../controllers/bookResources');
 app.get('/resources/books',bookController);
 
-const questionsController = require('./public/controllers/questions');
+const questionsController = require('../controllers/questions');
 app.get('/resources/questions',questionsController);
 
-const quizController = require('./public/controllers/quiz');
+const quizController = require('../controllers/quiz');
 app.get('/resources/quiz',quizController);
 
-const aboutController = require('./public/controllers/about');
+const aboutController = require('../controllers/about');
 app.get('/about',aboutController);
 
 /* ROUTES RELATED TO COMMUNITY */
-const communityController = require('./public/controllers/community');
+const communityController = require('../controllers/community');
 app.get('/community',communityController);
 
-const communityAuthentication = require('./public/middleware/communityAuthentication');
-const communityPostController = require('./public/controllers/communitypost');
+const communityAuthentication = require('../middleware/communityAuthentication');
+const communityPostController = require('../controllers/communitypost');
 app.get('/community/post/club1',communityAuthentication,communityPostController);
 app.get('/community/post/club2',communityAuthentication,communityPostController);
 app.get('/community/post/club3',communityAuthentication,communityPostController);
 app.get('/community/post/club4',communityAuthentication,communityPostController);
 
-const storePostController = require('./public/controllers/storeposts');
+const storePostController = require('../controllers/storeposts');
 app.post('/store/community/post',communityAuthentication,storePostController);
 /*-------       END       ----------*/
 
 
-const contactController = require('./public/controllers/contact');
+const contactController = require('../controllers/contact');
 app.get('/contact',contactController);
 
-const Authentication = require('./public/middleware/Authentication');
-const lsController = require('./public/controllers/loginSignup');
+const Authentication = require('../middleware/Authentication');
+const lsController = require('../controllers/loginSignup');
 app.get('/loginsignup',Authentication,lsController);
 
 
 /* ROUTES RELATED TO LOGIN AND LOGOUT */
-const loginUserController = require('./public/controllers/loginUser');
+const loginUserController = require('../controllers/loginUser');
 app.post('/loginsignup/loginUser',Authentication,loginUserController);
 
 
-const logoutController = require('./public/controllers/logOut');
+const logoutController = require('../controllers/logOut');
 app.get('/logout',logoutController);
 /*-------       END       ----------*/
 
 /* ROUTES RELATED TO REGISTER */
-const registrationController = require('./public/controllers/storeUser');
+const registrationController = require('../controllers/storeUser');
 app.post('/loginsignup/userRegistration',Authentication,registrationController);
 /*-------       END       ----------*/
 
 /* ROUTES RELATED TO SEARCH */
-app.use((req,res)=>res.render('./public/views/pagenotfound',{
+app.use((req,res)=>res.render('../public/views/pagenotfound',{
     title:'404'
 }));
 /*-------       END    -------*/
 
 app.get('/favicon.ico',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./assets/img/Books/favicon.png'));
+    res.sendFile(path.resolve(__dirname,'../assets/img/Books/favicon.png'));
 });
 
 /*      -----------------ROUTES SECTION ENDS HERE---------------        */
