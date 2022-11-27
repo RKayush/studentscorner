@@ -65,63 +65,63 @@ mongoose.connect("mongodb+srv://RadhaRaman:000ILoveMyBeloved000.@cluster0.a2kmo0
 // mongoose.connect("mongodb://localhost:27017/Database",{useNewUrlParser:true})
 
 /*          --------------ROUTING REQUESTS-------------          */
-const homeController = require('../controllers/home');
+const homeController = require('./public/controllers/home');
 app.get('/',homeController);
 
 /*----------------------        ROUTES RELATED TO RESOURCES     -------------------------- */
-const resourceController = require('../controllers/resources');
+const resourceController = require('./public/controllers/resources');
 app.get('/resources',resourceController);
 
-const freeController = require("../controllers/freeforstudents");
+const freeController = require("./public/controllers/freeforstudents");
 app.get('/resources/freeutilites',freeController);
 
-const bookController = require('../controllers/bookResources');
+const bookController = require('./public/controllers/bookResources');
 app.get('/resources/books',bookController);
 
-const questionsController = require('../controllers/questions');
+const questionsController = require('./public/controllers/questions');
 app.get('/resources/questions',questionsController);
 
-const quizController = require('../controllers/quiz');
+const quizController = require('./public/controllers/quiz');
 app.get('/resources/quiz',quizController);
 
-const aboutController = require('../controllers/about');
+const aboutController = require('./public/controllers/about');
 app.get('/about',aboutController);
 
 /* ROUTES RELATED TO COMMUNITY */
-const communityController = require('../controllers/community');
+const communityController = require('./public/controllers/community');
 app.get('/community',communityController);
 
-const communityAuthentication = require('../middleware/communityAuthentication');
-const communityPostController = require('../controllers/communitypost');
+const communityAuthentication = require('./public/middleware/communityAuthentication');
+const communityPostController = require('./public/controllers/communitypost');
 app.get('/community/post/club1',communityAuthentication,communityPostController);
 app.get('/community/post/club2',communityAuthentication,communityPostController);
 app.get('/community/post/club3',communityAuthentication,communityPostController);
 app.get('/community/post/club4',communityAuthentication,communityPostController);
 
-const storePostController = require('../controllers/storeposts');
+const storePostController = require('./public/controllers/storeposts');
 app.post('/store/community/post',communityAuthentication,storePostController);
 /*-------       END       ----------*/
 
 
-const contactController = require('../controllers/contact');
+const contactController = require('./public/controllers/contact');
 app.get('/contact',contactController);
 
-const Authentication = require('../middleware/Authentication');
-const lsController = require('../controllers/loginSignup');
+const Authentication = require('./public/middleware/Authentication');
+const lsController = require('./public/controllers/loginSignup');
 app.get('/loginsignup',Authentication,lsController);
 
 
 /* ROUTES RELATED TO LOGIN AND LOGOUT */
-const loginUserController = require('../controllers/loginUser');
+const loginUserController = require('./public/controllers/loginUser');
 app.post('/loginsignup/loginUser',Authentication,loginUserController);
 
 
-const logoutController = require('../controllers/logOut');
+const logoutController = require('./public/controllers/logOut');
 app.get('/logout',logoutController);
 /*-------       END       ----------*/
 
 /* ROUTES RELATED TO REGISTER */
-const registrationController = require('../controllers/storeUser');
+const registrationController = require('./public/controllers/storeUser');
 app.post('/loginsignup/userRegistration',Authentication,registrationController);
 /*-------       END       ----------*/
 
