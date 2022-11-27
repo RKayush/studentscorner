@@ -126,13 +126,13 @@ app.post('/loginsignup/userRegistration',Authentication,registrationController);
 /*-------       END       ----------*/
 
 /* ROUTES RELATED TO SEARCH */
-app.use((req,res)=>res.render('../public/views/pagenotfound',{
+app.use((req,res)=>res.render('./public/views/pagenotfound',{
     title:'404'
 }));
 /*-------       END    -------*/
 
 app.get('/favicon.ico',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'../assets/img/Books/favicon.png'));
+    res.sendFile(path.resolve(__dirname,'./assets/img/Books/favicon.png'));
 });
 
 /*      -----------------ROUTES SECTION ENDS HERE---------------        */

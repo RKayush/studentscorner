@@ -10,7 +10,7 @@ module.exports = (req,res)=>{
             email=data.email;
             password=data.password;
     }
-    res.render('../public/views/loginSignup',{
+    res.render('./public/views/loginSignup',{
         // errors:req.session.validationErrors
         errors:req.flash('validationErrors'),
         username:username,
